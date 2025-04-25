@@ -3,6 +3,7 @@
 A working guide for you, if you find it is hard to figure out all the necessary details on your own.
 
 ### 1. If file \*.pfx is missing, run:
+> PS > makecert_pfx.ps1
 
 makecert_pfx.ps1 (PowerShell script):
 ```
@@ -26,7 +27,7 @@ Go to:
 Right-click and select:
 > All tasks > Import ...
 
-Follow the wizard to import the self-signed certificate (qLiu_Github_cert.cer).
+Follow the wizard to import the self-signed certificate (**qLiu_Github_cert.cer**).
 
 ### 3. use qLiu_Github_cert.pfx to sign files; edit and run:
 > PS > sign_exe.ps1
