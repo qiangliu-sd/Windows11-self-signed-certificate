@@ -2,7 +2,8 @@
 
 A working guide for you, if you find it is hard to figure out all the necessary details on your own.
 
-### 1. If file \*.pfx is missing, run:
+### 1. If file \*.pfx is missing 
+edit and run:
 > PS > makecert_pfx.ps1
 
 makecert_pfx.ps1 (PowerShell script):
@@ -18,7 +19,8 @@ pvk2pfx -pvk "$MySPC.pvk" -spc "$MySPC.cer" -pfx "$MySPC.pfx" -po $MyPwd
 ```
 Three files with types of .cer, .pvk, and .pfx will be created in the current dir.
 
-### 2. Make a self-signed certificate trusted:
+### 2. Make a self-signed certificate trusted
+run:
 > PS > certmgr.msc
 
 Go to:
@@ -29,7 +31,8 @@ Right-click and select:
 
 Follow the wizard to import the self-signed certificate (**qLiu_Github_cert.cer**).
 
-### 3. use qLiu_Github_cert.pfx to sign files; edit and run:
+### 3. Use qLiu_Github_cert.pfx to sign files
+edit and run:
 > PS > sign_exe.ps1
 
 sign_exe.ps1:
