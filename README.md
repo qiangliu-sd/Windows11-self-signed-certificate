@@ -15,6 +15,7 @@ makecert -r -pe -n "CN=Qiang Liu CA,E=abc@cornell.edu" -a sha256 -cy end -sky si
 
 pvk2pfx -pvk "$MySPC.pvk" -spc "$MySPC.cer" -pfx "$MySPC.pfx" -po $MyPwd
 ```
+Three files with types of .cer, .pvk, and .pfx will be created in the current dir.
 
 ### 2. Make a self-signed certificate trusted:
 > PS > certmgr.msc
