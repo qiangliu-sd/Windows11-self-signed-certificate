@@ -10,14 +10,14 @@ makecert_pfx.ps1 (PowerShell script):
 ```
 # MODIFY: if you want
 $gh_cert = "qLiu_Github_cert"
-# define file NAMES 
-$ql_pvk = "$gh_cert.pvk"  # = qLiu_Github_cert.pvk
-$ql_cer = "$gh_cert.cer"
+# define file NAMES
+$ql_cer = "$gh_cert.cer"  # $ql_pvk = qLiu_Github_cert.cer
+$ql_pvk = "$gh_cert.pvk"
 $ql_pfx = "$gh_cert.pfx"
 # password
 $pfx_pwd = "abc@xyz"
-# CN: name of certificate in GUI of certmgr.msc or file properties
-$ql_cert_info = "CN=Qiang Liu Y,E=ql12@cornell.edu"
+# CN: certificate name in GUIs of certmgr or Digital signatures of file properties 
+$ql_cert_info = "CN=Qiang Liu Y,E=abc@cornell.edu"
 
 # provide the SAME pwd, when prompted
 makecert -r -pe -a sha256 -cy end -sky signature -n $ql_cert_info -sv $ql_pvk $ql_cer
@@ -27,8 +27,8 @@ pvk2pfx -pvk $ql_pvk -spc $ql_cer -pfx $ql_pfx -po $pfx_pwd
 Three files with types of .cer, .pvk, and .pfx will be created in the current dir.
 
 ### 2. Make a self-signed certificate trusted
-run:
-> PS > certmgr.msc
+Run:
+> PS > certmgr.msc  # OR simple certmgr
 
 Go to:
 > Trusted Root Certification Authorities > Certificates
@@ -38,7 +38,7 @@ Right-click and select:
 
 Follow the wizard to import the self-signed certificate (**qLiu_Github_cert.cer**).
 
-### 3. Use qLiu_Github_cert.pfx to sign files
+### 3. Use the \*.pfx to sign files
 Edit and run:
 > PS > sign_exe.ps1
 
